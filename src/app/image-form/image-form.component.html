@@ -1,0 +1,48 @@
+<form [formGroup]="form">
+  <div>
+    <label for="image">Image</label>
+    <input type="file" id="image" (change)="onFileChange($event)" />
+  </div>
+
+  <div>
+    <label for="animation">Animation</label>
+    <select id="animation" formControlName="animation">
+      <option value="slideInFromTop">Slide in from top</option>
+      <option value="zoomInFromBottom">Zoom in from bottom</option>
+      <!-- Add more animations as needed -->
+    </select>
+  </div>
+
+  <div>
+    <label for="imageSize">Image Size</label>
+    <input type="text" id="imageSize" formControlName="imageSize" placeholder="e.g., 100%, 200px" />
+  </div>
+
+  <div>
+    <label for="containerWidth">Container Width</label>
+    <input type="text" id="containerWidth" formControlName="containerWidth" placeholder="e.g., 400px" />
+  </div>
+
+  <div>
+    <label for="containerHeight">Container Height</label>
+    <input type="text" id="containerHeight" formControlName="containerHeight" placeholder="e.g., 400px" />
+  </div>
+
+  <div>
+    <label for="positionX">position X</label>
+    <input type="text" id="positionX" formControlName="positionX" placeholder="e.g., 200px" />
+  </div>
+
+  <div>
+    <label for="positionY">position Y</label>
+    <input type="text" id="positionY" formControlName="positionY" placeholder="e.g., 200px" />
+  </div>
+
+  <div *ngIf="imageSrc">
+    <img [src]="imageSrc" alt="Selected Image" style="max-width: 200px; margin-top: 10px;" />
+  </div>
+
+  <button type="button" (click)="downloadHtml()">Download HTML File</button>
+
+
+</form>
